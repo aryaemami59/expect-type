@@ -85,6 +85,11 @@ export type SelectOverloadsInfo<Tuple extends BaseOverloadInfo[], A extends unkn
   [K in keyof Tuple]: A extends Tuple[K]['parameters'] ? Tuple[K] : never
 }
 
+export type SelectOverloadParameters<FunctionType, FunctionArguments extends unknown[]> = SelectOverloadsInfo<
+  OverloadsInfoTuple<FunctionType>,
+  FunctionArguments
+>[number]['parameters']
+
 // prettier-ignore
 /** Gets the matching return type from a parameters-type (usually a tuple) */
 export type OverloadReturnTypeForParameters<F, A extends unknown[]> =

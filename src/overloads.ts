@@ -39,14 +39,14 @@ export type IsUselessOverloadInfo<Tuple> = StrictEqualUsingTSInternalIdenticalTo
  * then use {@linkcode IsUselessOverloadInfo} to replace useless overloads with
  * the parameterless overload.
  */
-export type TSPre53OverloadsInfoTuple<FunctionType> = FunctionType extends (...args: infer A) => infer R
-  ? DecreasingOverloadsInfoTuple<FunctionType> extends infer T
+export type TSPre53OverloadsInfoTuple<FunctionType> = FunctionType extends (...args: infer Args) => infer Return
+  ? DecreasingOverloadsInfoTuple<FunctionType> extends infer Tuple
     ? Extract<
         {
-          [K in keyof T]:
-            IsUselessOverloadInfo<T[K]> extends true
-              ? {parameters: A; return: R}
-              : T[K]
+          [Index in keyof Tuple]:
+            IsUselessOverloadInfo<Tuple[Index]> extends true
+              ? {parameters: Args; return: Return}
+              : Tuple[Index]
         },
         Array<{parameters: unknown[]; return: unknown}>
       >

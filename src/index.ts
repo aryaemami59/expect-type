@@ -1,10 +1,10 @@
-import {
+import type {
   OverloadParameters,
   OverloadReturnTypeForParameters,
   OverloadReturnTypes,
   SelectOverloadParameters,
 } from './overloads'
-import {
+import type {
   StrictEqualUsingTSInternalIdenticalToOperator,
   MismatchInfo,
   AValue,

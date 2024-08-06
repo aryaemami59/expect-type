@@ -1,4 +1,4 @@
-import {IsNever, StrictEqualUsingTSInternalIdenticalToOperator} from './utils'
+import type {IsNever, StrictEqualUsingTSInternalIdenticalToOperator} from './utils'
 
 // prettier-ignore
 /**

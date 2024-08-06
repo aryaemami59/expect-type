@@ -1,4 +1,9 @@
-import {OverloadParameters, OverloadReturnTypeForParameters, OverloadReturnTypes} from './overloads'
+import {
+  OverloadParameters,
+  OverloadReturnTypeForParameters,
+  OverloadReturnTypes,
+  SelectOverloadParameters,
+} from './overloads'
 import {
   StrictEqualUsingTSInternalIdenticalToOperator,
   MismatchInfo,
@@ -521,6 +526,10 @@ export interface BaseExpectTypeOf<Actual, Options extends {positive: boolean}> {
         ...args: A
       ) => {
         returns: ExpectTypeOf<OverloadReturnTypeForParameters<Actual, A>, Options>
+        parameters: ExpectTypeOf<SelectOverloadParameters<Actual, A>, Options>
+        parameter: <Index extends keyof SelectOverloadParameters<Actual, A>>(
+          index: Index,
+        ) => ExpectTypeOf<SelectOverloadParameters<Actual, A>[Index], Options>
       }
     : //ExpectTypeOf<SelectOverloadsInfo<OverloadsInfoTuple<Actual>, A>, Options>
       never

@@ -361,6 +361,11 @@ export type InferConstructor<ConstructorType extends new (...args: any) => any> 
 // @public
 export type InferFunctionType<FunctionType extends (...args: any) => any> = FunctionType;
 
+// @public (undocumented)
+export type Inverted<T> = {
+    [inverted]: T;
+};
+
 // @public
 export type IsAny<T> = [T] extends [Secret] ? Not<IsNever<T>> : false;
 
@@ -381,6 +386,11 @@ export type IsUselessOverloadInfo<FunctionType> = StrictEqualUsingTSInternalIden
 
 // @public
 export type LastOf<Union> = UnionToIntersection<Union extends any ? () => Union : never> extends () => infer R ? R : never;
+
+// @public (undocumented)
+export type Mismatch = {
+    [mismatch]: 'mismatch';
+};
 
 // @public
 export type MismatchArgs<ActualResult extends boolean, ExpectedResult extends boolean> = Eq<ActualResult, ExpectedResult> extends true ? [] : [Mismatch];
@@ -463,6 +473,9 @@ export interface PositiveExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {
 export type PrintType<T> = IsUnknown<T> extends true ? 'unknown' : IsNever<T> extends true ? 'never' : IsAny<T> extends true ? never : boolean extends T ? 'boolean' : T extends boolean ? `literal boolean: ${T}` : string extends T ? 'string' : T extends string ? `literal string: ${T}` : number extends T ? 'number' : T extends number ? `literal number: ${T}` : bigint extends T ? 'bigint' : T extends bigint ? `literal bigint: ${T}` : T extends null ? 'null' : T extends undefined ? 'undefined' : T extends (...args: any[]) => any ? 'function' : '...';
 
 // @public
+export type ReadonlyEquivalent<X, Y> = Extends<(<T>() => T extends X ? true : false), (<T>() => T extends Y ? true : false)>;
+
+// @public
 export type ReadonlyKeys<T> = Extract<{
     [K in keyof T]-?: ReadonlyEquivalent<{
         [_K in K]: T[K];
@@ -482,6 +495,9 @@ export type Scolder<Expecter extends {
 }, Options extends {
     positive: boolean;
 }> = Expecter['result'] extends Options['positive'] ? () => true : Options['positive'] extends true ? Expecter : Inverted<Expecter>;
+
+// @public (undocumented)
+export type Secret = typeof secret;
 
 // @public
 export type SelectOverloadsInfo<Union extends UnknownFunction, Args extends unknown[]> = Union extends InferFunctionType<infer Fn> ? (Args extends Parameters<Fn> ? Fn : never) : never;

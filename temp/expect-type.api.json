@@ -197,7 +197,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!_ExpectTypeOf:type",
-          "docComment": "/**\n * Represents a function that allows asserting the expected type of a value.\n */\n",
+          "docComment": "/**\n * Represents a function that allows asserting the expected type of a value.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -241,7 +241,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!And:type",
-          "docComment": "/**\n * Checks if all the boolean types in the {@linkcode Types} array are `true`.\n */\n",
+          "docComment": "/**\n * Checks if all the boolean types in the {@linkcode Types} array are `true`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -288,7 +288,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!AValue:type",
-          "docComment": "/**\n * Represents a value that can be of various types.\n */\n",
+          "docComment": "/**\n * Represents a value that can be of various types.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -323,7 +323,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "expect-type!BaseExpectTypeOf:interface",
-          "docComment": "/**\n * Represents the base interface for the {@linkcode expectTypeOf()} function. Provides a set of assertion methods to perform type checks on a value.\n */\n",
+          "docComment": "/**\n * Represents the base interface for the {@linkcode expectTypeOf()} function. Provides a set of assertion methods to perform type checks on a value.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1741,7 +1741,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ConstructorOverloadParameters:type",
-          "docComment": "/**\n * A union type of the parameters allowed for any overload of constructor {@linkcode ConstructorType}.\n */\n",
+          "docComment": "/**\n * A union type of the parameters allowed for any overload of constructor {@linkcode ConstructorType}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1803,7 +1803,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ConstructorOverloadsUnion:type",
-          "docComment": "/**\n * Get a union of overload variants for a constructor {@linkcode ConstructorType}. Does a check for whether we can do the one-shot 10-overload matcher (which works for ts\\>5.3), and if not, falls back to the more complicated utility.\n */\n",
+          "docComment": "/**\n * Get a union of overload variants for a constructor {@linkcode ConstructorType}. Does a check for whether we can do the one-shot 10-overload matcher (which works for ts\\>5.3), and if not, falls back to the more complicated utility.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1874,7 +1874,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!DecreasingConstructorOverloadsInfoUnion:type",
-          "docComment": "/**\n * For versions of TypeScript below 5.3, we need to check for 10 overloads, then 9, then 8, etc., to get a union of the overload variants.\n */\n",
+          "docComment": "/**\n * For versions of TypeScript below 5.3, we need to check for 10 overloads, then 9, then 8, etc., to get a union of the overload variants.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1913,7 +1913,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!DecreasingOverloadsInfoUnion:type",
-          "docComment": "/**\n * For versions of TypeScript below 5.3, we need to check for 10 overloads, then 9, then 8, etc., to get a union of the overload variants.\n */\n",
+          "docComment": "/**\n * For versions of TypeScript below 5.3, we need to check for 10 overloads, then 9, then 8, etc., to get a union of the overload variants.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1952,7 +1952,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!DeepBrand:type",
-          "docComment": "/**\n * Represents a deeply branded type.\n *\n * Recursively walk a type and replace it with a branded type related to the original. This is useful for equality-checking stricter than `A extends B ? B extends A ? true : false : false`, because it detects the difference between a few edge-case types that vanilla TypeScript doesn't by default: - `any` vs `unknown` - `{ readonly a: string }` vs `{ a: string }` - `{ a?: string }` vs `{ a: string | undefined }`\n *\n * __Note__: not very performant for complex types - this should only be used when you know you need it. If doing an equality check, it's almost always better to use {@linkcode StrictEqualUsingTSInternalIdenticalToOperator}.\n */\n",
+          "docComment": "/**\n * Represents a deeply branded type.\n *\n * Recursively walk a type and replace it with a branded type related to the original. This is useful for equality-checking stricter than `A extends B ? B extends A ? true : false : false`, because it detects the difference between a few edge-case types that vanilla TypeScript doesn't by default: - `any` vs `unknown` - `{ readonly a: string }` vs `{ a: string }` - `{ a?: string }` vs `{ a: string | undefined }`\n *\n * __Note__: not very performant for complex types - this should only be used when you know you need it. If doing an equality check, it's almost always better to use {@linkcode StrictEqualUsingTSInternalIdenticalToOperator}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2203,7 +2203,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Eq:type",
-          "docComment": "/**\n * Represents an equality type that returns {@linkcode Right} if {@linkcode Left} is `true`, otherwise returns the negation of {@linkcode Right}.\n */\n",
+          "docComment": "/**\n * Represents an equality type that returns {@linkcode Right} if {@linkcode Left} is `true`, otherwise returns the negation of {@linkcode Right}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2278,7 +2278,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectAny:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2335,7 +2335,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectArray:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2449,7 +2449,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectBoolean:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2506,7 +2506,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectFunction:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2563,7 +2563,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectNever:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2620,7 +2620,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectNull:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2677,7 +2677,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectNullable:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2752,7 +2752,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectNumber:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2809,7 +2809,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectObject:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2866,7 +2866,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectString:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2923,7 +2923,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectSymbol:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2980,7 +2980,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectTypeOf:type",
-          "docComment": "/**\n * Represents a conditional type that selects either {@linkcode PositiveExpectTypeOf} or {@linkcode NegativeExpectTypeOf} based on the value of the `positive` property in the {@linkcode Options} type.\n */\n",
+          "docComment": "/**\n * Represents a conditional type that selects either {@linkcode PositiveExpectTypeOf} or {@linkcode NegativeExpectTypeOf} based on the value of the `positive` property in the {@linkcode Options} type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3056,7 +3056,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "expect-type!expectTypeOf:var",
-          "docComment": "/**\n * Similar to Jest's `expect`, but with type-awareness. Gives you access to a number of type-matchers that let you make assertions about the form of a reference or generic type parameter.\n *\n * @example\n * ```ts\n * import { foo, bar } from '../foo'\n * import { expectTypeOf } from 'expect-type'\n *\n * test('foo types', () => {\n *   // make sure `foo` has type { a: number }\n *   expectTypeOf(foo).toMatchTypeOf({ a: 1 })\n *   expectTypeOf(foo).toHaveProperty('a').toBeNumber()\n *\n *   // make sure `bar` is a function taking a string:\n *   expectTypeOf(bar).parameter(0).toBeString()\n *   expectTypeOf(bar).returns.not.toBeAny()\n * })\n * ```\n *\n * @description\n *\n * See the [full docs](https://npmjs.com/package/expect-type#documentation) for lots more examples.\n */\n",
+          "docComment": "/**\n * Similar to Jest's `expect`, but with type-awareness. Gives you access to a number of type-matchers that let you make assertions about the form of a reference or generic type parameter.\n *\n * @example\n * ```ts\n * import { foo, bar } from '../foo'\n * import { expectTypeOf } from 'expect-type'\n *\n * test('foo types', () => {\n *   // make sure `foo` has type { a: number }\n *   expectTypeOf(foo).toMatchTypeOf({ a: 1 })\n *   expectTypeOf(foo).toHaveProperty('a').toBeNumber()\n *\n *   // make sure `bar` is a function taking a string:\n *   expectTypeOf(bar).parameter(0).toBeString()\n *   expectTypeOf(bar).returns.not.toBeAny()\n * })\n * ```\n *\n * @description\n *\n * See the [full docs](https://npmjs.com/package/expect-type#documentation) for lots more examples.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3080,7 +3080,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "expect-type!ExpectTypeOfOptions:interface",
-          "docComment": "/**\n * Represents the options for the {@linkcode ExpectTypeOf} function.\n */\n",
+          "docComment": "/**\n * Represents the options for the {@linkcode ExpectTypeOf} function.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3152,7 +3152,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectUndefined:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3209,7 +3209,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectUnknown:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3266,7 +3266,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExpectVoid:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3323,7 +3323,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Extends:type",
-          "docComment": "/**\n * Checks if one type extends another. Note: this is not quite the same as `Left extends Right` because: 1. If either type is `never`, the result is `true` iff the other type is also `never`. 2. Types are wrapped in a 1-tuple so that union types are not distributed - instead we consider `string | number` to _not_ extend `number`. If we used `Left extends Right` directly you would get `Extends<string | number, number>` =\\> `false | true` =\\> `boolean`.\n */\n",
+          "docComment": "/**\n * Checks if one type extends another. Note: this is not quite the same as `Left extends Right` because: 1. If either type is `never`, the result is `true` iff the other type is also `never`. 2. Types are wrapped in a 1-tuple so that union types are not distributed - instead we consider `string | number` to _not_ extend `number`. If we used `Left extends Right` directly you would get `Extends<string | number, number>` =\\> `false | true` =\\> `boolean`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3387,7 +3387,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!ExtendsExcludingAnyOrNever:type",
-          "docComment": "/**\n * Checks if the {@linkcode Left} type extends the {@linkcode Right} type, excluding `any` or `never`.\n */\n",
+          "docComment": "/**\n * Checks if the {@linkcode Left} type extends the {@linkcode Right} type, excluding `any` or `never`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3460,7 +3460,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!InferConstructor:type",
-          "docComment": "/**\n * Allows inferring any constructor using the `infer` keyword.\n */\n",
+          "docComment": "/**\n * Allows inferring any constructor using the `infer` keyword.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3507,7 +3507,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!InferFunctionType:type",
-          "docComment": "/**\n * Allows inferring any function using the `infer` keyword.\n */\n",
+          "docComment": "/**\n * Allows inferring any function using the `infer` keyword.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3553,8 +3553,56 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "expect-type!Inverted:type",
+          "docComment": "/**\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type Inverted<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    ["
+            },
+            {
+              "kind": "Reference",
+              "text": "inverted",
+              "canonicalReference": "expect-type!~inverted:var"
+            },
+            {
+              "kind": "Content",
+              "text": "]: T;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/messages.d.ts",
+          "releaseTag": "Public",
+          "name": "Inverted",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsAny:type",
-          "docComment": "/**\n * Checks if the given type is `any`.\n */\n",
+          "docComment": "/**\n * Checks if the given type is `any`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3567,7 +3615,7 @@
             {
               "kind": "Reference",
               "text": "Secret",
-              "canonicalReference": "expect-type!~Secret:type"
+              "canonicalReference": "expect-type!Secret:type"
             },
             {
               "kind": "Content",
@@ -3620,7 +3668,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsNever:type",
-          "docComment": "/**\n * Checks if the given type is `never`.\n */\n",
+          "docComment": "/**\n * Checks if the given type is `never`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3659,7 +3707,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsNeverOrAny:type",
-          "docComment": "/**\n * Determines if a type is either `never` or `any`.\n */\n",
+          "docComment": "/**\n * Determines if a type is either `never` or `any`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3721,7 +3769,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsUnknown:type",
-          "docComment": "/**\n * Determines if the given type is `unknown`.\n */\n",
+          "docComment": "/**\n * Determines if the given type is `unknown`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3778,7 +3826,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsUselessConstructorOverloadInfo:type",
-          "docComment": "/**\n * Same as {@linkcode IsUselessOverloadInfo}, but for constructors.\n */\n",
+          "docComment": "/**\n * Same as {@linkcode IsUselessOverloadInfo}, but for constructors.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3831,7 +3879,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!IsUselessOverloadInfo:type",
-          "docComment": "/**\n * `true` iff {@linkcode FunctionType} is equivalent to `(...args: unknown[]) => unknown`, which is what an overload variant looks like for a non-existent overload. This is useful because older versions of TypeScript end up with 9 \"useless\" overloads and one real one for parameterless/generic functions.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n */\n",
+          "docComment": "/**\n * `true` iff {@linkcode FunctionType} is equivalent to `(...args: unknown[]) => unknown`, which is what an overload variant looks like for a non-existent overload. This is useful because older versions of TypeScript end up with 9 \"useless\" overloads and one real one for parameterless/generic functions.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3884,7 +3932,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!LastOf:type",
-          "docComment": "/**\n * Get the last element of a union. First, converts to a union of `() => T` functions, then uses {@linkcode UnionToIntersection} to get the last one.\n */\n",
+          "docComment": "/**\n * Get the last element of a union. First, converts to a union of `() => T` functions, then uses {@linkcode UnionToIntersection} to get the last one.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3927,8 +3975,43 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "expect-type!Mismatch:type",
+          "docComment": "/**\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type Mismatch = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    ["
+            },
+            {
+              "kind": "Reference",
+              "text": "mismatch",
+              "canonicalReference": "expect-type!~mismatch:var"
+            },
+            {
+              "kind": "Content",
+              "text": "]: 'mismatch';\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/utils.d.ts",
+          "releaseTag": "Public",
+          "name": "Mismatch",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "expect-type!MismatchArgs:type",
-          "docComment": "/**\n * Represents the type of mismatched arguments between the actual result and the expected result.\n *\n * If {@linkcode ActualResult} and {@linkcode ExpectedResult} are equivalent, the type resolves to an empty tuple `[]`, indicating no mismatch. If they are not equivalent, it resolves to a tuple containing the element {@linkcode Mismatch}, signifying a discrepancy between the expected and actual results.\n */\n",
+          "docComment": "/**\n * Represents the type of mismatched arguments between the actual result and the expected result.\n *\n * If {@linkcode ActualResult} and {@linkcode ExpectedResult} are equivalent, the type resolves to an empty tuple `[]`, indicating no mismatch. If they are not equivalent, it resolves to a tuple containing the element {@linkcode Mismatch}, signifying a discrepancy between the expected and actual results.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3962,7 +4045,7 @@
             {
               "kind": "Reference",
               "text": "Mismatch",
-              "canonicalReference": "expect-type!~Mismatch:type"
+              "canonicalReference": "expect-type!Mismatch:type"
             },
             {
               "kind": "Content",
@@ -4008,7 +4091,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!MismatchInfo:type",
-          "docComment": "/**\n * Helper for showing end-user a hint why their type assertion is failing. This swaps \"leaf\" types with a literal message about what the actual and expected types are. Needs to check for `Not<IsAny<Actual>>` because otherwise `LeafTypeOf<Actual>` returns `never`, which extends everything 🤔\n */\n",
+          "docComment": "/**\n * Helper for showing end-user a hint why their type assertion is failing. This swaps \"leaf\" types with a literal message about what the actual and expected types are. Needs to check for `Not<IsAny<Actual>>` because otherwise `LeafTypeOf<Actual>` returns `never`, which extends everything 🤔\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4225,7 +4308,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!MutuallyExtends:type",
-          "docComment": "/**\n * Checks that {@linkcode Left} and {@linkcode Right} extend each other. Not quite the same as an equality check since `any` can make it resolve to `true`. So should only be used when {@linkcode Left} and {@linkcode Right} are known to avoid `any`.\n */\n",
+          "docComment": "/**\n * Checks that {@linkcode Left} and {@linkcode Right} extend each other. Not quite the same as an equality check since `any` can make it resolve to `true`. So should only be used when {@linkcode Left} and {@linkcode Right} are known to avoid `any`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4298,7 +4381,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "expect-type!NegativeExpectTypeOf:interface",
-          "docComment": "/**\n * Represents the negative expectation type for the {@linkcode Actual} type.\n */\n",
+          "docComment": "/**\n * Represents the negative expectation type for the {@linkcode Actual} type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4563,7 +4646,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Not:type",
-          "docComment": "/**\n * Negates a boolean type.\n */\n",
+          "docComment": "/**\n * Negates a boolean type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4610,7 +4693,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!NumOverloads:type",
-          "docComment": "/**\n * Calculates the number of overloads for a given function type.\n */\n",
+          "docComment": "/**\n * Calculates the number of overloads for a given function type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4663,7 +4746,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!OptionalKeys:type",
-          "docComment": "/**\n * Gets the keys of an object type that are optional.\n */\n",
+          "docComment": "/**\n * Gets the keys of an object type that are optional.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4716,7 +4799,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Or:type",
-          "docComment": "/**\n * Returns `true` if at least one of the types in the {@linkcode Types} array is `true`, otherwise returns `false`.\n */\n",
+          "docComment": "/**\n * Returns `true` if at least one of the types in the {@linkcode Types} array is `true`, otherwise returns `false`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4763,7 +4846,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!OverloadParameters:type",
-          "docComment": "/**\n * A union type of the parameters allowed for any overload of function {@linkcode FunctionType}.\n */\n",
+          "docComment": "/**\n * A union type of the parameters allowed for any overload of function {@linkcode FunctionType}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4825,7 +4908,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!OverloadReturnTypes:type",
-          "docComment": "/**\n * A union type of the return types for any overload of function {@linkcode FunctionType}.\n */\n",
+          "docComment": "/**\n * A union type of the return types for any overload of function {@linkcode FunctionType}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4887,7 +4970,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!OverloadsInfoUnion:type",
-          "docComment": "/**\n * Get a union of overload variants for a function {@linkcode FunctionType}. Does a check for whether we can do the one-shot 10-overload matcher (which works for ts\\>5.3), and if not, falls back to the more complicated utility.\n */\n",
+          "docComment": "/**\n * Get a union of overload variants for a function {@linkcode FunctionType}. Does a check for whether we can do the one-shot 10-overload matcher (which works for ts\\>5.3), and if not, falls back to the more complicated utility.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4958,7 +5041,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!OverloadsNarrowedByParameters:type",
-          "docComment": "/**\n * Creates a new overload (an intersection type) from an existing one, which only includes variant(s) which can accept {@linkcode Args} as parameters.\n */\n",
+          "docComment": "/**\n * Creates a new overload (an intersection type) from an existing one, which only includes variant(s) which can accept {@linkcode Args} as parameters.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5044,7 +5127,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "expect-type!PositiveExpectTypeOf:interface",
-          "docComment": "/**\n * Represents the positive assertion methods available for type checking in the {@linkcode expectTypeOf()} utility.\n */\n",
+          "docComment": "/**\n * Represents the positive assertion methods available for type checking in the {@linkcode expectTypeOf()} utility.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5449,7 +5532,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!PrintType:type",
-          "docComment": "/**\n * Determines the printable type representation for a given type.\n */\n",
+          "docComment": "/**\n * Determines the printable type representation for a given type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5510,8 +5593,63 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "expect-type!ReadonlyEquivalent:type",
+          "docComment": "/**\n * Determines if two types, are equivalent in a `readonly` manner.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type ReadonlyEquivalent<X, Y> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extends",
+              "canonicalReference": "expect-type!Extends:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<(<T>() => T extends X ? true : false), (<T>() => T extends Y ? true : false)>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/utils.d.ts",
+          "releaseTag": "Public",
+          "name": "ReadonlyEquivalent",
+          "typeParameters": [
+            {
+              "typeParameterName": "X",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Y",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "expect-type!ReadonlyKeys:type",
-          "docComment": "/**\n * Extracts the keys from a type that are not `readonly`.\n */\n",
+          "docComment": "/**\n * Extracts the keys from a type that are not `readonly`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5529,7 +5667,7 @@
             {
               "kind": "Reference",
               "text": "ReadonlyEquivalent",
-              "canonicalReference": "expect-type!~ReadonlyEquivalent:type"
+              "canonicalReference": "expect-type!ReadonlyEquivalent:type"
             },
             {
               "kind": "Content",
@@ -5564,7 +5702,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!RequiredKeys:type",
-          "docComment": "/**\n * Extracts the keys from a type that are required (not optional).\n */\n",
+          "docComment": "/**\n * Extracts the keys from a type that are required (not optional).\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5617,7 +5755,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Scolder:type",
-          "docComment": "/**\n * Checks if the result of an expecter matches the specified options, and resolves to a fairly readable error message if not.\n */\n",
+          "docComment": "/**\n * Checks if the result of an expecter matches the specified options, and resolves to a fairly readable error message if not.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5646,7 +5784,7 @@
             {
               "kind": "Reference",
               "text": "Inverted",
-              "canonicalReference": "expect-type!~Inverted:type"
+              "canonicalReference": "expect-type!Inverted:type"
             },
             {
               "kind": "Content",
@@ -5691,8 +5829,39 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "expect-type!Secret:type",
+          "docComment": "/**\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type Secret = "
+            },
+            {
+              "kind": "Content",
+              "text": "typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "secret",
+              "canonicalReference": "expect-type!~secret:var"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/utils.d.ts",
+          "releaseTag": "Public",
+          "name": "Secret",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "expect-type!SelectOverloadsInfo:type",
-          "docComment": "/**\n * Takes an overload variants {@linkcode Union}, produced from {@linkcode OverloadsInfoUnion} and rejects the ones incompatible with parameters {@linkcode Args}.\n */\n",
+          "docComment": "/**\n * Takes an overload variants {@linkcode Union}, produced from {@linkcode OverloadsInfoUnion} and rejects the ones incompatible with parameters {@linkcode Args}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5777,7 +5946,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!StrictEqualUsingBranding:type",
-          "docComment": "/**\n * Checks if two types are strictly equal using branding.\n */\n",
+          "docComment": "/**\n * Checks if two types are strictly equal using branding.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5850,7 +6019,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!StrictEqualUsingTSInternalIdenticalToOperator:type",
-          "docComment": "/**\n * Checks if two types are strictly equal using the TypeScript internal identical-to operator.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/55188#issuecomment-1656328122 | much history}\n */\n",
+          "docComment": "/**\n * Checks if two types are strictly equal using the TypeScript internal identical-to operator.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/55188#issuecomment-1656328122 | much history}\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5918,7 +6087,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!TSPost53ConstructorOverloadsInfoUnion:type",
-          "docComment": "/**\n * The simple(ish) way to get overload info from a constructor {@linkcode ConstructorType}. Recent versions of TypeScript will match any constructor against a generic 10-overload type, filling in slots with duplicates of the constructor. So, we can just match against a single type and get all the overloads.\n *\n * For older versions of TypeScript, we'll need to painstakingly do ten separate matches.\n */\n",
+          "docComment": "/**\n * The simple(ish) way to get overload info from a constructor {@linkcode ConstructorType}. Recent versions of TypeScript will match any constructor against a generic 10-overload type, filling in slots with duplicates of the constructor. So, we can just match against a single type and get all the overloads.\n *\n * For older versions of TypeScript, we'll need to painstakingly do ten separate matches.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5957,7 +6126,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!TSPost53OverloadsInfoUnion:type",
-          "docComment": "/**\n * The simple(ish) way to get overload info from a function {@linkcode FunctionType}. Recent versions of TypeScript will match any function against a generic 10-overload type, filling in slots with duplicates of the function. So, we can just match against a single type and get all the overloads.\n *\n * For older versions of TypeScript, we'll need to painstakingly do ten separate matches.\n */\n",
+          "docComment": "/**\n * The simple(ish) way to get overload info from a function {@linkcode FunctionType}. Recent versions of TypeScript will match any function against a generic 10-overload type, filling in slots with duplicates of the function. So, we can just match against a single type and get all the overloads.\n *\n * For older versions of TypeScript, we'll need to painstakingly do ten separate matches.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5996,7 +6165,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!TSPre53ConstructorOverloadsInfoUnion:type",
-          "docComment": "/**\n * For older versions of TypeScript, we need two separate workarounds to get constructor overload info. First, we need need to use {@linkcode DecreasingConstructorOverloadsInfoUnion} to get the overload info for constructors with 1-10 overloads. Then, we need to filter out the \"useless\" overloads that are present in older versions of TypeScript, for parameterless constructors. To do this we use {@linkcode IsUselessConstructorOverloadInfo} to remove useless overloads.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n */\n",
+          "docComment": "/**\n * For older versions of TypeScript, we need two separate workarounds to get constructor overload info. First, we need need to use {@linkcode DecreasingConstructorOverloadsInfoUnion} to get the overload info for constructors with 1-10 overloads. Then, we need to filter out the \"useless\" overloads that are present in older versions of TypeScript, for parameterless constructors. To do this we use {@linkcode IsUselessConstructorOverloadInfo} to remove useless overloads.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6058,7 +6227,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!TSPre53OverloadsInfoUnion:type",
-          "docComment": "/**\n * For older versions of TypeScript, we need two separate workarounds to get overload info. First, we need need to use {@linkcode DecreasingOverloadsInfoUnion} to get the overload info for functions with 1-10 overloads. Then, we need to filter out the \"useless\" overloads that are present in older versions of TypeScript, for parameterless functions. To do this we use {@linkcode IsUselessOverloadInfo} to remove useless overloads.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n */\n",
+          "docComment": "/**\n * For older versions of TypeScript, we need two separate workarounds to get overload info. First, we need need to use {@linkcode DecreasingOverloadsInfoUnion} to get the overload info for functions with 1-10 overloads. Then, we need to filter out the \"useless\" overloads that are present in older versions of TypeScript, for parameterless functions. To do this we use {@linkcode IsUselessOverloadInfo} to remove useless overloads.\n *\n * @see\n *\n * {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6120,7 +6289,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Tuplify:type",
-          "docComment": "/**\n * Old versions of TypeScript can sometimes seem to refuse to separate out union members unless you put them each in a pointless tuple and add an extra `infer X` expression. There may be a better way to work around this problem, but since it's not a problem in newer versions of TypeScript, it's not a priority right now.\n */\n",
+          "docComment": "/**\n * Old versions of TypeScript can sometimes seem to refuse to separate out union members unless you put them each in a pointless tuple and add an extra `infer X` expression. There may be a better way to work around this problem, but since it's not a problem in newer versions of TypeScript, it's not a priority right now.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6159,7 +6328,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!TuplifyUnion:type",
-          "docComment": "/**\n * Intermediate type for {@linkcode UnionToTuple} which pushes the \"last\" union member to the end of a tuple, and recursively prepends the remainder of the union.\n */\n",
+          "docComment": "/**\n * Intermediate type for {@linkcode UnionToTuple} which pushes the \"last\" union member to the end of a tuple, and recursively prepends the remainder of the union.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6245,7 +6414,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!UnionToIntersection:type",
-          "docComment": "/**\n * Convert a union to an intersection. `A | B | C` -\\> `A & B & C`\n */\n",
+          "docComment": "/**\n * Convert a union to an intersection. `A | B | C` -\\> `A & B & C`\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6284,7 +6453,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!UnionToTuple:type",
-          "docComment": "/**\n * Convert a union like `1 | 2 | 3` to a tuple like `[1, 2, 3]`.\n */\n",
+          "docComment": "/**\n * Convert a union like `1 | 2 | 3` to a tuple like `[1, 2, 3]`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6328,7 +6497,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!UnknownConstructor:type",
-          "docComment": "/**\n * A constructor function with `unknown` parameters and return type.\n */\n",
+          "docComment": "/**\n * A constructor function with `unknown` parameters and return type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6354,7 +6523,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!UnknownFunction:type",
-          "docComment": "/**\n * A function with `unknown` parameters and return type.\n */\n",
+          "docComment": "/**\n * A function with `unknown` parameters and return type.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6380,7 +6549,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!UsefulKeys:type",
-          "docComment": "/**\n * Subjective \"useful\" keys from a type. For objects it's just `keyof` but for tuples/arrays it's the number keys.\n *\n * @example\n * ```ts\n * UsefulKeys<{ a: 1; b: 2 }> // 'a' | 'b'\n *\n * UsefulKeys<['a', 'b']> // '0' | '1'\n *\n * UsefulKeys<string[]> // number\n * ```\n *\n */\n",
+          "docComment": "/**\n * Subjective \"useful\" keys from a type. For objects it's just `keyof` but for tuples/arrays it's the number keys.\n *\n * @example\n * ```ts\n * UsefulKeys<{ a: 1; b: 2 }> // 'a' | 'b'\n *\n * UsefulKeys<['a', 'b']> // '0' | '1'\n *\n * UsefulKeys<string[]> // number\n * ```\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6419,7 +6588,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "expect-type!Xor:type",
-          "docComment": "/**\n * Represents the exclusive OR operation on a tuple of boolean types. Returns `true` if exactly one of the boolean types is `true`, otherwise returns `false`.\n */\n",
+          "docComment": "/**\n * Represents the exclusive OR operation on a tuple of boolean types. Returns `true` if exactly one of the boolean types is `true`, otherwise returns `false`.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

@@ -3,6 +3,8 @@ import type {And, Extends, ExtendsExcludingAnyOrNever, IsAny, IsNever, IsUnknown
 
 /**
  * Determines the printable type representation for a given type.
+ *
+ * @public
  */
 export type PrintType<T> =
   IsUnknown<T> extends true
@@ -40,6 +42,8 @@ export type PrintType<T> =
  * This swaps "leaf" types with a literal message about what the actual and
  * expected types are. Needs to check for `Not<IsAny<Actual>>` because
  * otherwise `LeafTypeOf<Actual>` returns `never`, which extends everything 🤔
+ *
+ * @public
  */
 export type MismatchInfo<Actual, Expected> =
   And<[Extends<PrintType<Actual>, '...'>, Not<IsAny<Actual>>]> extends true
@@ -61,14 +65,18 @@ export type MismatchInfo<Actual, Expected> =
 const inverted = Symbol('inverted')
 
 /**
- * @internal
+ * @public
  */
-type Inverted<T> = {[inverted]: T}
+export type Inverted<T> = {[inverted]: T}
 
 /**
  * @internal
  */
 const expectNull = Symbol('expectNull')
+
+/**
+ * @public
+ */
 export type ExpectNull<T> = {
   [expectNull]: T
   result: ExtendsExcludingAnyOrNever<T, null>
@@ -78,6 +86,10 @@ export type ExpectNull<T> = {
  * @internal
  */
 const expectUndefined = Symbol('expectUndefined')
+
+/**
+ * @public
+ */
 export type ExpectUndefined<T> = {
   [expectUndefined]: T
   result: ExtendsExcludingAnyOrNever<T, undefined>
@@ -87,6 +99,10 @@ export type ExpectUndefined<T> = {
  * @internal
  */
 const expectNumber = Symbol('expectNumber')
+
+/**
+ * @public
+ */
 export type ExpectNumber<T> = {
   [expectNumber]: T
   result: ExtendsExcludingAnyOrNever<T, number>
@@ -96,6 +112,10 @@ export type ExpectNumber<T> = {
  * @internal
  */
 const expectString = Symbol('expectString')
+
+/**
+ * @public
+ */
 export type ExpectString<T> = {
   [expectString]: T
   result: ExtendsExcludingAnyOrNever<T, string>
@@ -105,6 +125,10 @@ export type ExpectString<T> = {
  * @internal
  */
 const expectBoolean = Symbol('expectBoolean')
+
+/**
+ * @public
+ */
 export type ExpectBoolean<T> = {
   [expectBoolean]: T
   result: ExtendsExcludingAnyOrNever<T, boolean>
@@ -114,6 +138,10 @@ export type ExpectBoolean<T> = {
  * @internal
  */
 const expectVoid = Symbol('expectVoid')
+
+/**
+ * @public
+ */
 export type ExpectVoid<T> = {
   [expectVoid]: T
   result: ExtendsExcludingAnyOrNever<T, void>
@@ -123,6 +151,10 @@ export type ExpectVoid<T> = {
  * @internal
  */
 const expectFunction = Symbol('expectFunction')
+
+/**
+ * @public
+ */
 export type ExpectFunction<T> = {
   [expectFunction]: T
   result: ExtendsExcludingAnyOrNever<T, (...args: any[]) => any>
@@ -132,6 +164,10 @@ export type ExpectFunction<T> = {
  * @internal
  */
 const expectObject = Symbol('expectObject')
+
+/**
+ * @public
+ */
 export type ExpectObject<T> = {
   [expectObject]: T
   result: ExtendsExcludingAnyOrNever<T, object>
@@ -141,6 +177,10 @@ export type ExpectObject<T> = {
  * @internal
  */
 const expectArray = Symbol('expectArray')
+
+/**
+ * @public
+ */
 export type ExpectArray<T> = {
   [expectArray]: T
   result: ExtendsExcludingAnyOrNever<T, any[]>
@@ -150,6 +190,10 @@ export type ExpectArray<T> = {
  * @internal
  */
 const expectSymbol = Symbol('expectSymbol')
+
+/**
+ * @public
+ */
 export type ExpectSymbol<T> = {
   [expectSymbol]: T
   result: ExtendsExcludingAnyOrNever<T, symbol>
@@ -159,24 +203,40 @@ export type ExpectSymbol<T> = {
  * @internal
  */
 const expectAny = Symbol('expectAny')
+
+/**
+ * @public
+ */
 export type ExpectAny<T> = {[expectAny]: T; result: IsAny<T>}
 
 /**
  * @internal
  */
 const expectUnknown = Symbol('expectUnknown')
+
+/**
+ * @public
+ */
 export type ExpectUnknown<T> = {[expectUnknown]: T; result: IsUnknown<T>}
 
 /**
  * @internal
  */
 const expectNever = Symbol('expectNever')
+
+/**
+ * @public
+ */
 export type ExpectNever<T> = {[expectNever]: T; result: IsNever<T>}
 
 /**
  * @internal
  */
 const expectNullable = Symbol('expectNullable')
+
+/**
+ * @public
+ */
 export type ExpectNullable<T> = {
   [expectNullable]: T
   result: Not<StrictEqualUsingBranding<T, NonNullable<T>>>
@@ -194,6 +254,8 @@ export type ExpectBigInt<T> = {
 /**
  * Checks if the result of an expecter matches the specified options, and
  * resolves to a fairly readable error message if not.
+ *
+ * @public
  */
 export type Scolder<
   Expecter extends {result: boolean},

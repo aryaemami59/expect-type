@@ -10,6 +10,8 @@ import type {StrictEqualUsingTSInternalIdenticalToOperator, IsNever, UnionToInte
  *
  * For older versions of TypeScript, we'll need to painstakingly do
  * ten separate matches.
+ *
+ * @public
  */
 export type TSPost53OverloadsInfoUnion<FunctionType> =
   FunctionType extends {(...args: infer A1): infer R1; (...args: infer A2): infer R2; (...args: infer A3): infer R3; (...args: infer A4): infer R4; (...args: infer A5): infer R5; (...args: infer A6): infer R6; (...args: infer A7): infer R7; (...args: infer A8): infer R8; (...args: infer A9): infer R9; (...args: infer A10): infer R10}
@@ -18,6 +20,8 @@ export type TSPost53OverloadsInfoUnion<FunctionType> =
 
 /**
  * A function with `unknown` parameters and return type.
+ *
+ * @public
  */
 export type UnknownFunction = (...args: unknown[]) => unknown
 
@@ -29,6 +33,8 @@ export type UnknownFunction = (...args: unknown[]) => unknown
  * 9 "useless" overloads and one real one for parameterless/generic functions.
  *
  * @see {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}
+ *
+ * @public
  */
 export type IsUselessOverloadInfo<FunctionType> = StrictEqualUsingTSInternalIdenticalToOperator<
   FunctionType,
@@ -41,6 +47,8 @@ export type IsUselessOverloadInfo<FunctionType> = StrictEqualUsingTSInternalIden
  * extra `infer X` expression. There may be a better way to work around this
  * problem, but since it's not a problem in newer versions of TypeScript,
  * it's not a priority right now.
+ *
+ * @public
  */
 export type Tuplify<Union> = Union extends infer X ? [X] : never
 
@@ -54,6 +62,8 @@ export type Tuplify<Union> = Union extends infer X ? [X] : never
  * {@linkcode IsUselessOverloadInfo} to remove useless overloads.
  *
  * @see {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}
+ *
+ * @public
  */
 export type TSPre53OverloadsInfoUnion<FunctionType> =
   // first, pointlessly wrap the overload variants in a 1-tuple, then infer them as `Tup` - this helps TypeScript isolate out the overload variants
@@ -72,6 +82,8 @@ export type TSPre53OverloadsInfoUnion<FunctionType> =
 /**
  * For versions of TypeScript below 5.3, we need to check for 10 overloads,
  * then 9, then 8, etc., to get a union of the overload variants.
+ *
+ * @public
  */
 export type DecreasingOverloadsInfoUnion<F> = F extends {(...args: infer A1): infer R1; (...args: infer A2): infer R2; (...args: infer A3): infer R3; (...args: infer A4): infer R4; (...args: infer A5): infer R5; (...args: infer A6): infer R6; (...args: infer A7): infer R7; (...args: infer A8): infer R8; (...args: infer A9): infer R9; (...args: infer A10): infer R10}
   ? ((...p: A1) => R1) | ((...p: A2) => R2) | ((...p: A3) => R3) | ((...p: A4) => R4) | ((...p: A5) => R5) | ((...p: A6) => R6) | ((...p: A7) => R7) | ((...p: A8) => R8) | ((...p: A9) => R9) | ((...p: A10) => R10)
@@ -99,6 +111,8 @@ export type DecreasingOverloadsInfoUnion<F> = F extends {(...args: infer A1): in
  * Does a check for whether we can do the one-shot
  * 10-overload matcher (which works for ts\>5.3), and if not,
  * falls back to the more complicated utility.
+ *
+ * @public
  */
 export type OverloadsInfoUnion<FunctionType> =
   // recent TypeScript versions (5.3+) can treat a 1-overload type function as a 10-overload. Test for this by seeing if we can successfully get a union from a 1-overload function. If we can't, we're on an old TypeScript and need to use the more complicated utility.
@@ -108,12 +122,16 @@ export type OverloadsInfoUnion<FunctionType> =
 
 /**
  * Allows inferring any function using the `infer` keyword.
+ *
+ * @public
  */
 export type InferFunctionType<FunctionType extends (...args: any) => any> = FunctionType
 
 /**
  * A union type of the parameters allowed for any
  * overload of function {@linkcode FunctionType}.
+ *
+ * @public
  */
 export type OverloadParameters<FunctionType> =
   OverloadsInfoUnion<FunctionType> extends InferFunctionType<infer Fn> ? Parameters<Fn> : never
@@ -121,6 +139,8 @@ export type OverloadParameters<FunctionType> =
 /**
  * A union type of the return types for any overload of
  * function {@linkcode FunctionType}.
+ *
+ * @public
  */
 export type OverloadReturnTypes<FunctionType> =
   OverloadsInfoUnion<FunctionType> extends InferFunctionType<infer Fn> ? ReturnType<Fn> : never
@@ -129,6 +149,8 @@ export type OverloadReturnTypes<FunctionType> =
  * Takes an overload variants {@linkcode Union},
  * produced from {@linkcode OverloadsInfoUnion} and rejects
  * the ones incompatible with parameters {@linkcode Args}.
+ *
+ * @public
  */
 export type SelectOverloadsInfo<Union extends UnknownFunction, Args extends unknown[]> =
   Union extends InferFunctionType<infer Fn> ? (Args extends Parameters<Fn> ? Fn : never) : never
@@ -137,6 +159,8 @@ export type SelectOverloadsInfo<Union extends UnknownFunction, Args extends unkn
  * Creates a new overload (an intersection type) from an existing one,
  * which only includes variant(s) which can accept
  * {@linkcode Args} as parameters.
+ *
+ * @public
  */
 export type OverloadsNarrowedByParameters<
   FunctionType,
@@ -155,6 +179,8 @@ export type OverloadsNarrowedByParameters<
  *
  * For older versions of TypeScript,
  * we'll need to painstakingly do ten separate matches.
+ *
+ * @public
  */
 export type TSPost53ConstructorOverloadsInfoUnion<ConstructorType> =
   ConstructorType extends {new (...args: infer A1): infer R1; new (...args: infer A2): infer R2; new (...args: infer A3): infer R3; new (...args: infer A4): infer R4; new (...args: infer A5): infer R5; new (...args: infer A6): infer R6; new (...args: infer A7): infer R7; new (...args: infer A8): infer R8; new (...args: infer A9): infer R9; new (...args: infer A10): infer R10}
@@ -163,12 +189,16 @@ export type TSPost53ConstructorOverloadsInfoUnion<ConstructorType> =
 
 /**
  * A constructor function with `unknown` parameters and return type.
+ *
+ * @public
  */
 export type UnknownConstructor = new (...args: unknown[]) => unknown
 
 // prettier-ignore
 /**
  * Same as {@linkcode IsUselessOverloadInfo}, but for constructors.
+ *
+ * @public
  */
 export type IsUselessConstructorOverloadInfo<FunctionType> = StrictEqualUsingTSInternalIdenticalToOperator<FunctionType, UnknownConstructor>
 
@@ -182,6 +212,8 @@ export type IsUselessConstructorOverloadInfo<FunctionType> = StrictEqualUsingTSI
  * {@linkcode IsUselessConstructorOverloadInfo} to remove useless overloads.
  *
  * @see {@link https://github.com/microsoft/TypeScript/issues/28867 | Related}
+ *
+ * @public
  */
 export type TSPre53ConstructorOverloadsInfoUnion<ConstructorType> =
   // first, pointlessly wrap the overload variants in a 1-tuple, then infer them as `Tup` - this helps TypeScript isolate out the overload variants
@@ -200,6 +232,8 @@ export type TSPre53ConstructorOverloadsInfoUnion<ConstructorType> =
 /**
  * For versions of TypeScript below 5.3, we need to check for 10 overloads,
  * then 9, then 8, etc., to get a union of the overload variants.
+ *
+ * @public
  */
 export type DecreasingConstructorOverloadsInfoUnion<ConstructorType> = ConstructorType extends {new (...args: infer A1): infer R1; new (...args: infer A2): infer R2; new (...args: infer A3): infer R3; new (...args: infer A4): infer R4; new (...args: infer A5): infer R5; new (...args: infer A6): infer R6; new (...args: infer A7): infer R7; new (...args: infer A8): infer R8; new (...args: infer A9): infer R9; new (...args: infer A10): infer R10}
   ? (new (...p: A1) => R1) | (new (...p: A2) => R2) | (new (...p: A3) => R3) | (new (...p: A4) => R4) | (new (...p: A5) => R5) | (new (...p: A6) => R6) | (new (...p: A7) => R7) | (new (...p: A8) => R8) | (new (...p: A9) => R9) | (new (...p: A10) => R10)
@@ -227,6 +261,8 @@ export type DecreasingConstructorOverloadsInfoUnion<ConstructorType> = Construct
  * {@linkcode ConstructorType}. Does a check for whether we can do the
  * one-shot 10-overload matcher (which works for ts\>5.3), and if not,
  * falls back to the more complicated utility.
+ *
+ * @public
  */
 export type ConstructorOverloadsUnion<ConstructorType> =
   // recent TypeScript versions (5.3+) can treat a 1-overload type constructor as a 10-overload. Test for this by seeing if we can successfully get a union from a 1-overload constructor. If we can't, we're on an old TypeScript and need to use the more complicated utility.
@@ -236,6 +272,8 @@ export type ConstructorOverloadsUnion<ConstructorType> =
 
 /**
  * Allows inferring any constructor using the `infer` keyword.
+ *
+ * @public
  */
 // This *looks* fairly pointless but if you try to use `new (...args: any) => any` directly, TypeScript will not infer the constructor type correctly.
 export type InferConstructor<ConstructorType extends new (...args: any) => any> = ConstructorType
@@ -243,11 +281,15 @@ export type InferConstructor<ConstructorType extends new (...args: any) => any> 
 /**
  * A union type of the parameters allowed for any overload
  * of constructor {@linkcode ConstructorType}.
+ *
+ * @public
  */
 export type ConstructorOverloadParameters<ConstructorType> =
   ConstructorOverloadsUnion<ConstructorType> extends InferConstructor<infer Ctor> ? ConstructorParameters<Ctor> : never
 
 /**
  * Calculates the number of overloads for a given function type.
+ *
+ * @public
  */
 export type NumOverloads<FunctionType> = UnionToTuple<OverloadsInfoUnion<FunctionType>>['length']

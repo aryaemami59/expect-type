@@ -33,6 +33,8 @@ export * from './overloads'
 /**
  * Represents the positive assertion methods available for type checking in the
  * {@linkcode expectTypeOf()} utility.
+ *
+ * @public
  */
 export interface PositiveExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {positive: true; branded: false}> {
   toEqualTypeOf: {
@@ -262,6 +264,8 @@ export interface PositiveExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {
 
 /**
  * Represents the negative expectation type for the {@linkcode Actual} type.
+ *
+ * @public
  */
 export interface NegativeExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {positive: false}> {
   toEqualTypeOf: {
@@ -417,6 +421,8 @@ export interface NegativeExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {
  * Represents a conditional type that selects either
  * {@linkcode PositiveExpectTypeOf} or {@linkcode NegativeExpectTypeOf} based
  * on the value of the `positive` property in the {@linkcode Options} type.
+ *
+ * @public
  */
 export type ExpectTypeOf<Actual, Options extends {positive: boolean}> = Options['positive'] extends true
   ? PositiveExpectTypeOf<Actual>
@@ -426,6 +432,8 @@ export type ExpectTypeOf<Actual, Options extends {positive: boolean}> = Options[
  * Represents the base interface for the
  * {@linkcode expectTypeOf()} function.
  * Provides a set of assertion methods to perform type checks on a value.
+ *
+ * @public
  */
 export interface BaseExpectTypeOf<Actual, Options extends {positive: boolean}> {
   /**
@@ -831,6 +839,8 @@ const fn: any = () => true
 
 /**
  * Represents a function that allows asserting the expected type of a value.
+ *
+ * @public
  */
 export type _ExpectTypeOf = {
   /**
@@ -872,6 +882,8 @@ export type _ExpectTypeOf = {
  *
  * @description
  * See the [full docs](https://npmjs.com/package/expect-type#documentation) for lots more examples.
+ *
+ * @public
  */
 export const expectTypeOf: _ExpectTypeOf = <Actual>(
   _actual?: Actual,

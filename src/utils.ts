@@ -1,16 +1,22 @@
 /**
  * Negates a boolean type.
+ *
+ * @public
  */
 export type Not<T extends boolean> = T extends true ? false : true
 
 /**
  * Returns `true` if at least one of the types in the
  * {@linkcode Types} array is `true`, otherwise returns `false`.
+ *
+ * @public
  */
 export type Or<Types extends boolean[]> = Types[number] extends false ? false : true
 
 /**
  * Checks if all the boolean types in the {@linkcode Types} array are `true`.
+ *
+ * @public
  */
 export type And<Types extends boolean[]> = Types[number] extends true ? true : false
 
@@ -18,6 +24,8 @@ export type And<Types extends boolean[]> = Types[number] extends true ? true : f
  * Represents an equality type that returns {@linkcode Right} if
  * {@linkcode Left} is `true`,
  * otherwise returns the negation of {@linkcode Right}.
+ *
+ * @public
  */
 export type Eq<Left extends boolean, Right extends boolean> = Left extends true ? Right : Not<Right>
 
@@ -25,6 +33,8 @@ export type Eq<Left extends boolean, Right extends boolean> = Left extends true 
  * Represents the exclusive OR operation on a tuple of boolean types.
  * Returns `true` if exactly one of the boolean types is `true`,
  * otherwise returns `false`.
+ *
+ * @public
  */
 export type Xor<Types extends [boolean, boolean]> = Not<Eq<Types[0], Types[1]>>
 
@@ -34,27 +44,35 @@ export type Xor<Types extends [boolean, boolean]> = Not<Eq<Types[0], Types[1]>>
 const secret = Symbol('secret')
 
 /**
- * @internal
+ * @public
  */
-type Secret = typeof secret
+export type Secret = typeof secret
 
 /**
  * Checks if the given type is `never`.
+ *
+ * @public
  */
 export type IsNever<T> = [T] extends [never] ? true : false
 
 /**
  * Checks if the given type is `any`.
+ *
+ * @public
  */
 export type IsAny<T> = [T] extends [Secret] ? Not<IsNever<T>> : false
 
 /**
  * Determines if the given type is `unknown`.
+ *
+ * @public
  */
 export type IsUnknown<T> = [unknown] extends [T] ? Not<IsAny<T>> : false
 
 /**
  * Determines if a type is either `never` or `any`.
+ *
+ * @public
  */
 export type IsNeverOrAny<T> = Or<[IsNever<T>, IsAny<T>]>
 
@@ -70,6 +88,8 @@ export type IsNeverOrAny<T> = Or<[IsNever<T>, IsAny<T>]>
  *
  * UsefulKeys<string[]> // number
  * ```
+ *
+ * @public
  */
 export type UsefulKeys<T> = T extends any[]
   ? {
@@ -79,6 +99,8 @@ export type UsefulKeys<T> = T extends any[]
 
 /**
  * Extracts the keys from a type that are required (not optional).
+ *
+ * @public
  */
 export type RequiredKeys<T> = Extract<
   {
@@ -89,6 +111,8 @@ export type RequiredKeys<T> = Extract<
 
 /**
  * Gets the keys of an object type that are optional.
+ *
+ * @public
  */
 export type OptionalKeys<T> = Exclude<keyof T, RequiredKeys<T>>
 
@@ -96,6 +120,8 @@ export type OptionalKeys<T> = Exclude<keyof T, RequiredKeys<T>>
 // prettier-ignore
 /**
  * Extracts the keys from a type that are not `readonly`.
+ *
+ * @public
  */
 export type ReadonlyKeys<T> = Extract<{
   [K in keyof T]-?: ReadonlyEquivalent<
@@ -111,9 +137,9 @@ export type ReadonlyKeys<T> = Extract<{
 /**
  * Determines if two types, are equivalent in a `readonly` manner.
  *
- * @internal
+ * @public
  */
-type ReadonlyEquivalent<X, Y> = Extends<
+export type ReadonlyEquivalent<X, Y> = Extends<
   (<T>() => T extends X ? true : false), (<T>() => T extends Y ? true : false)
 >;
 
@@ -121,12 +147,16 @@ type ReadonlyEquivalent<X, Y> = Extends<
  * Checks if one type extends another. Note: this is not quite the same as `Left extends Right` because:
  * 1. If either type is `never`, the result is `true` iff the other type is also `never`.
  * 2. Types are wrapped in a 1-tuple so that union types are not distributed - instead we consider `string | number` to _not_ extend `number`. If we used `Left extends Right` directly you would get `Extends<string | number, number>` =\> `false | true` =\> `boolean`.
+ *
+ * @public
  */
 export type Extends<Left, Right> = IsNever<Left> extends true ? IsNever<Right> : [Left] extends [Right] ? true : false
 
 /**
  * Checks if the {@linkcode Left} type extends the {@linkcode Right} type,
  * excluding `any` or `never`.
+ *
+ * @public
  */
 export type ExtendsExcludingAnyOrNever<Left, Right> = IsAny<Left> extends true ? IsAny<Right> : Extends<Left, Right>
 
@@ -135,6 +165,8 @@ export type ExtendsExcludingAnyOrNever<Left, Right> = IsAny<Left> extends true ?
  * the TypeScript internal identical-to operator.
  *
  * @see {@link https://github.com/microsoft/TypeScript/issues/55188#issuecomment-1656328122 | much history}
+ *
+ * @public
  */
 export type StrictEqualUsingTSInternalIdenticalToOperator<L, R> =
   (<T>() => T extends (L & T) | T ? true : false) extends <T>() => T extends (R & T) | T ? true : false
@@ -148,6 +180,8 @@ export type StrictEqualUsingTSInternalIdenticalToOperator<L, R> =
  * Not quite the same as an equality check since `any` can make it resolve
  * to `true`. So should only be used when {@linkcode Left} and
  * {@linkcode Right} are known to avoid `any`.
+ *
+ * @public
  */
 export type MutuallyExtends<Left, Right> = And<[Extends<Left, Right>, Extends<Right, Left>]>
 
@@ -157,9 +191,9 @@ export type MutuallyExtends<Left, Right> = And<[Extends<Left, Right>, Extends<Ri
 const mismatch = Symbol('mismatch')
 
 /**
- * @internal
+ * @public
  */
-type Mismatch = {[mismatch]: 'mismatch'}
+export type Mismatch = {[mismatch]: 'mismatch'}
 
 /**
  * A type which should match anything passed as a value but *doesn't*
@@ -173,6 +207,8 @@ const avalue = Symbol('avalue')
 
 /**
  * Represents a value that can be of various types.
+ *
+ * @public
  */
 export type AValue = {[avalue]?: undefined} | string | number | boolean | symbol | bigint | null | undefined | void
 
@@ -185,12 +221,16 @@ export type AValue = {[avalue]?: undefined} | string | number | boolean | symbol
  * If they are not equivalent, it resolves to a tuple containing the element
  * {@linkcode Mismatch}, signifying a discrepancy between
  * the expected and actual results.
+ *
+ * @public
  */
 export type MismatchArgs<ActualResult extends boolean, ExpectedResult extends boolean> =
   Eq<ActualResult, ExpectedResult> extends true ? [] : [Mismatch]
 
 /**
  * Represents the options for the {@linkcode ExpectTypeOf} function.
+ *
+ * @public
  */
 export interface ExpectTypeOfOptions {
   positive: boolean
@@ -200,6 +240,8 @@ export interface ExpectTypeOfOptions {
 /**
  * Convert a union to an intersection.
  * `A | B | C` -\> `A & B & C`
+ *
+ * @public
  */
 export type UnionToIntersection<Union> = (Union extends any ? (distributedUnion: Union) => void : never) extends (
   mergedIntersection: infer Intersection,
@@ -211,6 +253,8 @@ export type UnionToIntersection<Union> = (Union extends any ? (distributedUnion:
  * Get the last element of a union.
  * First, converts to a union of `() => T` functions,
  * then uses {@linkcode UnionToIntersection} to get the last one.
+ *
+ * @public
  */
 export type LastOf<Union> =
   UnionToIntersection<Union extends any ? () => Union : never> extends () => infer R ? R : never
@@ -219,11 +263,16 @@ export type LastOf<Union> =
  * Intermediate type for {@linkcode UnionToTuple} which pushes the
  * "last" union member to the end of a tuple, and recursively prepends
  * the remainder of the union.
+ *
+ * @public
  */
 export type TuplifyUnion<Union, LastElement = LastOf<Union>> =
   IsNever<Union> extends true ? [] : [...TuplifyUnion<Exclude<Union, LastElement>>, LastElement]
 
 /**
  * Convert a union like `1 | 2 | 3` to a tuple like `[1, 2, 3]`.
+ *
+ *
+ * @public
  */
 export type UnionToTuple<Union> = TuplifyUnion<Union>

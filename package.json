@@ -32,11 +32,13 @@
     "type-check": "tsc",
     "build": "tsc -p tsconfig.lib.json",
     "prepack": "pnpm build",
+    "api-types": "api-extractor run --local -v --diagnostics --config api-extractor.json --typescript-compiler-folder ./node_modules/typescript",
     "arethetypeswrong": "attw --pack",
     "test": "vitest run"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.17.3",
+    "@microsoft/api-extractor": "^7.47.6",
     "@types/node": "^22.0.0",
     "@vitest/ui": "^3.0.0",
     "eslint": "^8.57.0",

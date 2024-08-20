@@ -25,6 +25,8 @@ import type {
  * __Note__: not very performant for complex types - this should only be used
  * when you know you need it. If doing an equality check, it's almost always
  * better to use {@linkcode StrictEqualUsingTSInternalIdenticalToOperator}.
+ *
+ * @public
  */
 export type DeepBrand<T> =
   IsNever<T> extends true
@@ -81,5 +83,7 @@ export type DeepBrand<T> =
 
 /**
  * Checks if two types are strictly equal using branding.
+ *
+ * @public
  */
 export type StrictEqualUsingBranding<Left, Right> = MutuallyExtends<DeepBrand<Left>, DeepBrand<Right>>

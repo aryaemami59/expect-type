@@ -24,7 +24,14 @@ import type {
   OverloadReturnTypes,
   OverloadsNarrowedByParameters,
 } from './overloads'
-import type {AValue, Extends, MismatchArgs, StrictEqualUsingTSInternalIdenticalToOperator} from './utils'
+import type {
+  StrictEqualUsingTSInternalIdenticalToOperator,
+  AValue,
+  MismatchArgs,
+  Extends,
+  IsNever,
+  SetReadonly,
+} from './utils'
 
 export * from './branding' // backcompat, consider removing in next major version
 export * from './messages' // backcompat, consider removing in next major version
@@ -675,6 +682,13 @@ export interface BaseExpectTypeOf<Actual, Options extends {positive: boolean}> {
     keyToOmit?: KeyToOmit,
   ) => ExpectTypeOf<Omit<Actual, KeyToOmit>, Options>
 
+  readonly: <PropertiesToMakeReadonly extends keyof Actual = never>(
+    propertiesToMakeReadonly?: PropertiesToMakeReadonly,
+  ) => ExpectTypeOf<
+    IsNever<PropertiesToMakeReadonly> extends true ? Readonly<Actual> : SetReadonly<Actual, PropertiesToMakeReadonly>,
+    Options
+  >
+
   /**
    * Extracts a certain function argument with `.parameter(number)` call to
    * perform other assertions on it.
@@ -938,6 +952,7 @@ export const expectTypeOf: _ExpectTypeOf = <Actual>(
     exclude: expectTypeOf,
     pick: expectTypeOf,
     omit: expectTypeOf,
+    readonly: expectTypeOf,
     toHaveProperty: expectTypeOf,
     parameter: expectTypeOf,
   }

@@ -32,13 +32,13 @@
     "type-check": "tsc",
     "build": "tsc -p tsconfig.lib.json",
     "prepack": "pnpm build",
-    "api-types": "api-extractor run --local -v --diagnostics --config api-extractor.json --typescript-compiler-folder ./node_modules/typescript",
+    "api-types": "api-extractor run --local -v --config api-extractor.json --typescript-compiler-folder ./node_modules/typescript",
     "arethetypeswrong": "attw --pack",
     "test": "vitest run"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.16.2",
-    "@microsoft/api-extractor": "^7.47.6",
+    "@microsoft/api-extractor": "^7.47.8",
     "@types/node": "^20.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-mmkal": "0.9.0",

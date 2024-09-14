@@ -146,6 +146,12 @@ const expectNullable = Symbol('expectNullable')
 export type ExpectNullable<T> = {[expectNullable]: T; result: Not<StrictEqualUsingBranding<T, NonNullable<T>>>}
 
 /**
+ * @internal
+ */
+const expectReadonly = Symbol('expectReadonly')
+export type ExpectReadonly<T> = {[expectReadonly]: T; result: StrictEqualUsingBranding<T, Readonly<T>>}
+
+/**
  * Checks if the result of an expecter matches the specified options, and
  * resolves to a fairly readable error message if not.
  */

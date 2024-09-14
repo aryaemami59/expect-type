@@ -197,6 +197,24 @@ test('`.readonly` can make specific properties `readonly`', () => {
   expectTypeOf<Post>().readonly('title').toEqualTypeOf<{readonly title: string; content: string}>()
 })
 
+test('`.toBeReadonly` can detect `readonly` objects', () => {
+  type Post = {title: string; content: string}
+
+  expectTypeOf<Post>().readonly('content').not.toBeReadonly()
+
+  expectTypeOf<Post>().readonly().toBeReadonly()
+
+  expectTypeOf<readonly Post[]>().toBeReadonly()
+
+  expectTypeOf<Post[]>().readonly().toBeReadonly()
+
+  expectTypeOf<Readonly<Post[]>>().toBeReadonly()
+
+  expectTypeOf<ReadonlyArray<string>>().toBeReadonly()
+
+  expectTypeOf<Readonly<Map<string, string>>>().toBeReadonly()
+})
+
 test('Make assertions about object properties', () => {
   const obj = {a: 1, b: ''}
 

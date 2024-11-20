@@ -130,6 +130,17 @@ export type Extends<Left, Right> = IsNever<Left> extends true ? IsNever<Right> :
  */
 export type ExtendsExcludingAnyOrNever<Left, Right> = IsAny<Left> extends true ? IsAny<Right> : Extends<Left, Right>
 
+export type IsExactOptionalPropertyTypesEnabled =
+  MutuallyExtends<{a?: number}, {a?: number | undefined}> extends true ? false : true
+// : MutuallyExtends<{ a?: number }, { a?: number | undefined }> extends true
+//   ? false
+//   : StrictEqualUsingTSInternalIdenticalToOperator<
+//         { a?: number },
+//         { a?: number | undefined }
+//       > extends true
+//     ? false
+//     : true
+
 /**
  * Checks if two types are strictly equal using
  * the TypeScript internal identical-to operator.
@@ -139,7 +150,7 @@ export type ExtendsExcludingAnyOrNever<Left, Right> = IsAny<Left> extends true ?
 export type StrictEqualUsingTSInternalIdenticalToOperator<L, R> =
   (<T>() => T extends (L & T) | T ? true : false) extends <T>() => T extends (R & T) | T ? true : false
     ? IsNever<L> extends IsNever<R>
-      ? true
+      ? MutuallyExtends<L, R>
       : false
     : false
 
@@ -184,7 +195,8 @@ export type AValue = {[avalue]?: undefined} | string | number | boolean | symbol
  * the type resolves to an empty tuple `[]`, indicating no mismatch.
  * If they are not equivalent, it resolves to a tuple containing the element
  * {@linkcode Mismatch}, signifying a discrepancy between
- * the expected and actual results.
+ * the {@linkcode ExpectedResult | expected} and
+ * {@linkcode ActualResult | actual results}.
  */
 export type MismatchArgs<ActualResult extends boolean, ExpectedResult extends boolean> =
   Eq<ActualResult, ExpectedResult> extends true ? [] : [Mismatch]

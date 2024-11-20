@@ -1,12 +1,12 @@
 import type {ConstructorOverloadParameters, NumOverloads, OverloadsInfoUnion} from './overloads'
 import type {
-  IsNever,
   IsAny,
+  IsNever,
   IsUnknown,
+  MutuallyExtends,
+  OptionalKeys,
   ReadonlyKeys,
   RequiredKeys,
-  OptionalKeys,
-  MutuallyExtends,
   UnionToTuple,
 } from './utils'
 
@@ -82,4 +82,5 @@ export type DeepBrand<T> =
 /**
  * Checks if two types are strictly equal using branding.
  */
-export type StrictEqualUsingBranding<Left, Right> = MutuallyExtends<DeepBrand<Left>, DeepBrand<Right>>
+export type StrictEqualUsingBranding<Left, Right> =
+  MutuallyExtends<Left, Right> extends false ? false : MutuallyExtends<DeepBrand<Left>, DeepBrand<Right>>

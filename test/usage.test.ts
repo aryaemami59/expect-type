@@ -315,7 +315,7 @@ test('`.toBeCallableWith` can be used to narrow down the parameters of a functio
   expectTypeOf<Delete>().toBeCallableWith('abc').parameters.toEqualTypeOf<[string]>()
   expectTypeOf<Delete>()
     .toBeCallableWith(['abc', 'def'], {force: true})
-    .parameters.toEqualTypeOf<[string[], {force: boolean}?]>()
+    .parameters.toEqualTypeOf<[paths: string[], options?: {force: boolean} | undefined]>()
 
   expectTypeOf<Delete>().toBeCallableWith('abc').parameter(0).toBeString()
   expectTypeOf<Delete>().toBeCallableWith('abc').parameter(1).toBeUndefined()
@@ -526,6 +526,7 @@ test("But this won't work if the nesting is deeper in the type. For these situat
 
 test('Be careful with `.branded` for very deep or complex types, though. If possible you should find a way to simplify your test to avoid needing to use it', () => {
   // This *should* result in an error, but the "branding" mechanism produces too large a type and TypeScript just gives up! https://github.com/microsoft/TypeScript/issues/50670
+  // @ts-expect-error
   expectTypeOf<() => () => () => () => 1>().branded.toEqualTypeOf<() => () => () => () => 2>()
 
   // @ts-expect-error the non-branded implementation catches the error as expected.
@@ -540,6 +541,7 @@ test("So, if you have an extremely deep type that ALSO has an intersection in it
 
   // this succeeds, but it should fail.
   expectTypeOf<() => () => () => () => {a: 1} & {b: 2}>().branded.toEqualTypeOf<
+    // @ts-expect-error
     () => () => () => () => {a: 1; c: 2}
   >()
 })

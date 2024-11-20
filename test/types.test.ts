@@ -670,7 +670,7 @@ test('Distinguish between different types that are AND`d together', () => {
   // expectTypeOf<{foo: number} & {bar: string}>().not.toEqualTypeOf<{foo: number; bar: string}>()
 })
 
-test('Works arounds tsc bug not handling intersected types for this form of equivalence', () => {
+test('Works around tsc bug not handling intersected types for this form of equivalence', () => {
   // @ts-expect-error This is the bug.
   expectTypeOf<{foo: number} & {bar: string}>().toEqualTypeOf<{foo: number; bar: string}>()
   // This should \@ts-expect-error but does not.
@@ -764,7 +764,6 @@ test('Distinguish between identical types that are AND`d together', () => {
 
 test('limitations', () => {
   // these *shouldn't* fail, but kept here to document missing behaviours. Once fixed, remove the expect-error comments to make sure they can't regress
-  // @ts-expect-error TypeScript can't handle the truth: https://github.com/expect-type/issues/5 https://github.com/microsoft/TypeScript/issues/50670
   expectTypeOf<a.StrictEqualUsingBranding<() => () => () => void, () => () => () => string>>().toEqualTypeOf<false>()
 
   // @ts-expect-error toEqualTypeOf relies on TypeScript's internal `toBeIdentical` function which falls down with intersection types, but is otherwise accurate and performant: https://github.com/microsoft/TypeScript/issues/55188#issuecomment-1656328122
@@ -846,6 +845,28 @@ test('Overload edge cases', () => {
 
   expectTypeOf<NoArgOverload>().parameters.toEqualTypeOf<[] | [1]>()
   expectTypeOf<NoArgOverload>().returns.toEqualTypeOf<1>()
+})
+
+test('exactOptionalPropertyTypes', () => {
+  type A = {
+    a?: number | undefined
+  }
+
+  type B = {
+    b?: number
+  }
+
+  const onlyOptional: A = {a: 1}
+  const optionalAndUndefined: B = {b: 1}
+
+  // expectTypeOf(a).toEqualTypeOf<{ a?: number }>() // should fail
+  // expectTypeOf(onlyOptional).branded.toEqualTypeOf<{a?: number}>() // should fail
+  expectTypeOf(onlyOptional).not.toEqualTypeOf<{a?: number}>() // should fail
+  // expectTypeOf(optionalAndUndefined).branded.toEqualTypeOf<{b?: number | undefined}>() // should fail
+  expectTypeOf(optionalAndUndefined).not.toEqualTypeOf<{b?: number | undefined}>() // should fail
+
+  // @ts-expect-error
+  expectTypeOf<{a?: number}>(onlyOptional) // errors as expected
 })
 
 test('toMatchObjectType', () => {

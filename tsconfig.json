@@ -1,14 +1,15 @@
 {
-    "compilerOptions": {
-        "lib": ["es2021", "DOM"],
-        "target": "es2021",
-        "module": "commonjs",
-        "skipLibCheck": true,
-        "strict": true,
-        "noEmit": true,
-        "noErrorTruncation": true,
-        "types": ["node"],
-        "esModuleInterop": true
-    },
-    "include": ["src", "test", "*.js", ".*.*js", "*.md"]
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true,
+    "lib": ["es2021", "DOM"],
+    "target": "es2021",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "types": ["node"],
+    "esModuleInterop": true
+  },
+  "include": ["src", "test", "*.js", ".*.*js", "*.md"]
 }

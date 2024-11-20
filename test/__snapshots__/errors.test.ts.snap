@@ -276,11 +276,11 @@ test/usage.test.ts:999:999 - error TS2554: Expected 1 arguments, but got 0.
     999       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided.
-test/usage.test.ts:999:999 - error TS2344: Type '() => () => () => () => 2' does not satisfy the constraint '() => () => () => () => 1'.
-  Call signature return types '() => () => () => 2' and '() => () => () => 1' are incompatible.
-    Call signature return types '() => () => 2' and '() => () => 1' are incompatible.
-      Call signature return types '() => 2' and '() => 1' are incompatible.
-        Type '2' is not assignable to type '1'.
+test/usage.test.ts:999:999 - error TS2344: Type '() => () => () => () => 2' does not satisfy the constraint '"Expected: function, Actual: function"'.
+
+999   expectTypeOf<() => () => () => () => 1>().branded.toEqualTypeOf<() => () => () => () => 2>()
+                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+test/usage.test.ts:999:999 - error TS2344: Type '() => () => () => () => 2' does not satisfy the constraint '"Expected: function, Actual: function"'.
 
 999   expectTypeOf<() => () => () => () => 1>().toEqualTypeOf<() => () => () => () => 2>()
                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -293,6 +293,10 @@ test/usage.test.ts:999:999 - error TS2554: Expected 1 arguments, but got 0.
     999       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided.
+test/usage.test.ts:999:999 - error TS2344: Type '() => () => () => () => { a: 1; c: 2; }' does not satisfy the constraint '"Expected: function, Actual: function"'.
+
+999     () => () => () => () => {a: 1; c: 2}
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 test/usage.test.ts:999:999 - error TS2769: No overload matches this call.
   Overload 1 of 2, '(value: ((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this>) & AValue, ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<this, (IsNever<...> extends IsNever<...> ? true : false) extends true ? unknown : MismatchInfo<...>>, true>): true', gave the following error.
     Argument of type 'this' is not assignable to parameter of type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this>) & AValue'.

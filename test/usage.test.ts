@@ -212,6 +212,22 @@ test('Use `.omit` to remove a set of properties from an object', () => {
   expectTypeOf<Person>().omit<'name'>().toEqualTypeOf<{age: number}>()
 })
 
+test('`.toBeReadonly` can detect `readonly` objects', () => {
+  type Post = {title: string; content: string}
+
+  expectTypeOf<Readonly<Post>>().toBeReadonly()
+
+  expectTypeOf<Post>().not.toBeReadonly()
+
+  expectTypeOf<readonly Post[]>().toBeReadonly()
+
+  expectTypeOf<Readonly<Post[]>>().toBeReadonly()
+
+  expectTypeOf<ReadonlyArray<string>>().toBeReadonly()
+
+  expectTypeOf<Readonly<Map<string, string>>>().toBeReadonly()
+})
+
 test('Make assertions about object properties', () => {
   const obj = {a: 1, b: ''}
 

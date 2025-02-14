@@ -320,6 +320,24 @@ type Person = {name: string; age: number}
 expectTypeOf<Person>().omit<'name'>().toEqualTypeOf<{age: number}>()
 ```
 
+`.toBeReadonly` can detect `readonly` objects:
+
+```typescript
+type Post = {title: string; content: string}
+
+expectTypeOf<Readonly<Post>>().toBeReadonly()
+
+expectTypeOf<Post>().not.toBeReadonly()
+
+expectTypeOf<readonly Post[]>().toBeReadonly()
+
+expectTypeOf<Readonly<Post[]>>().toBeReadonly()
+
+expectTypeOf<ReadonlyArray<string>>().toBeReadonly()
+
+expectTypeOf<Readonly<Map<string, string>>>().toBeReadonly()
+```
+
 Make assertions about object properties:
 
 ```typescript

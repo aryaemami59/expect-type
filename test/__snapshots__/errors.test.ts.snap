@@ -22,6 +22,14 @@ exports[`usage.test.ts > \`.toBe...\` methods protect against \`any\` 1`] = `
                                        ~~~~~~~~~~"
 `;
 
+exports[`usage.test.ts > \`.toBeReadonly\` can detect \`readonly\` objects 1`] = `
+"test/usage-sabotaged-tobereadonly-can-detect-readonly-65c5aaf1.ts:6:24 - error TS2349: This expression is not callable.
+  Type 'ExpectReadonly<Post>' has no call signatures.
+
+6   expectTypeOf<Post>().toBeReadonly()
+                         ~~~~~~~~~~~~"
+`;
+
 exports[`usage.test.ts > \`.toEqualTypeOf\` can be used to distinguish between functions 1`] = `
 "test/usage-sabotaged-toequaltypeof-can-be-used-945c9c93.ts:5:41 - error TS2344: Type 'HasParam' does not satisfy the constraint '"Expected: function, Actual: never"'.
 
@@ -142,8 +150,8 @@ exports[`usage.test.ts > But this won't work if the nesting is deeper in the typ
 3   expectTypeOf<{a: {b: 1} & {c: 1}}>().toEqualTypeOf<{a: {b: 1; c: 1}}>()
                                          ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided."
 `;
@@ -178,8 +186,8 @@ exports[`usage.test.ts > Detect the difference between regular and \`readonly\` 
 6   expectTypeOf<A1>().toEqualTypeOf<E1>()
                        ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided.
 test/usage-sabotaged-detect-the-difference-between-3ca7694b.ts:12:22 - error TS2554: Expected 1 arguments, but got 0.
@@ -187,8 +195,8 @@ test/usage-sabotaged-detect-the-difference-between-3ca7694b.ts:12:22 - error TS2
 12   expectTypeOf<A2>().toEqualTypeOf<E2>()
                         ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided."
 `;
@@ -199,8 +207,8 @@ exports[`usage.test.ts > Distinguish between classes with different constructors
 15   expectTypeOf<typeof A>().toEqualTypeOf<typeof B>()
                               ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided."
 `;
@@ -229,8 +237,8 @@ test/usage-sabotaged-distinguish-between-missing-null-32fdb7b8.ts:4:32 - error T
 4   expectTypeOf<{a?: number}>().toEqualTypeOf<{a: number | undefined}>()
                                  ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided.
 test/usage-sabotaged-distinguish-between-missing-null-32fdb7b8.ts:5:53 - error TS2344: Type '{ a: number | null; }' does not satisfy the constraint '{ a: "Expected: number, Actual: undefined" | "Expected: null, Actual: undefined"; }'.
@@ -263,8 +271,8 @@ exports[`usage.test.ts > Known limitation: Intersection types can cause issues w
 4   expectTypeOf<{a: 1} & {b: 2}>().toEqualTypeOf<{a: 1; b: 2}>()
                                     ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided."
 `;
@@ -355,8 +363,8 @@ exports[`usage.test.ts > So, if you have an extremely deep type that ALSO has an
 3   expectTypeOf<() => () => () => () => {a: 1} & {b: 2}>().toEqualTypeOf<
                                                             ~~~~~~~~~~~~~
 
-  src/index.ts:184:7
-    184       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
+  src/index.ts:185:7
+    185       ...MISMATCH: MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<Actual, Expected>, true>
               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Arguments for the rest parameter 'MISMATCH' were not provided."
 `;

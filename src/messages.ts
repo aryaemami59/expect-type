@@ -221,6 +221,15 @@ export type ExpectBigInt<T> = {
 }
 
 /**
+ * @internal
+ */
+const expectReadonly = Symbol('expectReadonly')
+export type ExpectReadonly<T> = {
+  [expectReadonly]: T
+  result: StrictEqualUsingBranding<T, Readonly<T>, DeepBrandOptionsDefaults>
+}
+
+/**
  * Checks if the result of an expecter matches the specified options, and
  * resolves to a fairly readable error message if not.
  */

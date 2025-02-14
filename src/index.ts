@@ -17,6 +17,7 @@ import type {
   ExpectNullable,
   ExpectNumber,
   ExpectObject,
+  ExpectReadonly,
   ExpectString,
   ExpectSymbol,
   ExpectUndefined,
@@ -769,6 +770,8 @@ export interface BaseExpectTypeOf<Actual, Options extends {positive: boolean}> {
     ? <Args extends ConstructorOverloadParameters<Actual>>(...args: Args) => true
     : never
 
+  toBeReadonly: Scolder<ExpectReadonly<Actual>, Options>
+
   /**
    * Equivalent to the {@linkcode Extract} utility type.
    * Helps narrow down complex union types.
@@ -1142,6 +1145,7 @@ export const expectTypeOf: _ExpectTypeOf = <Actual>(
     toMatchTypeOf: fn,
     toEqualTypeOf: fn,
     toBeConstructibleWith: fn,
+    toBeReadonly: fn,
     toMatchObjectType: fn,
     toExtend: fn,
     map: expectTypeOf,

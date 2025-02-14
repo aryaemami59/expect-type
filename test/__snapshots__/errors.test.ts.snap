@@ -135,6 +135,11 @@ test/usage.test.ts:999:999 - error TS2345: Argument of type '"xxl"' is not assig
 
 999   expectTypeOf<ResponsiveProp<number>>().exclude<number | number[]>().toHaveProperty('xxl')
                                                                                          ~~~~~
+test/usage.test.ts:999:999 - error TS2349: This expression is not callable.
+  Type 'ExpectReadonly<Post>' has no call signatures.
+
+999   expectTypeOf<Post>().toBeReadonly()
+                           ~~~~~~~~~~~~
 test/usage.test.ts:999:999 - error TS2345: Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
 
 999   expectTypeOf(obj).toHaveProperty('c')

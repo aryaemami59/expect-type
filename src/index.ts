@@ -61,40 +61,55 @@ export interface PositiveExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {
    * @param MISMATCH - The mismatch arguments.
    * @returns `true`.
    */
-  toMatchObjectType: <
-    Expected extends IsUnion<Expected> extends true
-      ? 'toMatchObject does not support union types'
-      : Not<Extends<Expected, Record<string, unknown>>> extends true
-        ? 'toMatchObject only supports object types'
-        : StrictEqualUsingTSInternalIdenticalToOperator<DeepPickMatchingProps<Actual, Expected>, Expected> extends true
-          ? unknown
-          : MismatchInfo<DeepPickMatchingProps<Actual, Expected>, Expected>,
-  >(
-    ...MISMATCH: MismatchArgs<
-      StrictEqualUsingTSInternalIdenticalToOperator<DeepPickMatchingProps<Actual, Expected>, Expected>,
-      true
-    >
-  ) => true
+  toMatchObjectType: {
+    <
+      Expected extends IsUnion<Expected> extends true
+        ? 'toMatchObject does not support union types'
+        : Not<Extends<Expected, Record<string, unknown>>> extends true
+          ? 'toMatchObject only supports object types'
+          : StrictEqualUsingTSInternalIdenticalToOperator<
+                DeepPickMatchingProps<Actual, Expected>,
+                Expected
+              > extends true
+            ? unknown
+            : MismatchInfo<DeepPickMatchingProps<Actual, Expected>, Expected>,
+    >(
+      ...MISMATCH: MismatchArgs<
+        StrictEqualUsingTSInternalIdenticalToOperator<DeepPickMatchingProps<Actual, Expected>, Expected>,
+        true
+      >
+    ): true
 
-  /**
-   * Check if your type extends the expected type
-   *
-   * A less strict version of {@linkcode toEqualTypeOf | .toEqualTypeOf()} that allows for extra properties.
-   * This is roughly equivalent to an `extends` constraint in a function type argument.
-   *
-   * @example
-   * ```ts
-   * expectTypeOf({ a: 1, b: 1 }).toExtend<{ a: number }>()
-   *
-   * expectTypeOf({ a: 1 }).not.toExtend<{ b: number }>()
-   * ```
-   *
-   * @param MISMATCH - The mismatch arguments.
-   * @returns `true`.
-   */
-  toExtend: <Expected extends Extends<Actual, Expected> extends true ? unknown : MismatchInfo<Actual, Expected>>(
-    ...MISMATCH: MismatchArgs<Extends<Actual, Expected>, true>
-  ) => true
+    <
+      Expected extends IsUnion<Expected> extends true
+        ? 'toMatchObject does not support union types'
+        : Not<Extends<Expected, Record<string, unknown>>> extends true
+          ? 'toMatchObject only supports object types'
+          : StrictEqualUsingTSInternalIdenticalToOperator<
+                DeepPickMatchingProps<Actual, Expected>,
+                Expected
+              > extends true
+            ? unknown
+            : MismatchInfo<DeepPickMatchingProps<Actual, Expected>, Expected>,
+    >(
+      value: Expected & AValue,
+      ...MISMATCH: MismatchArgs<
+        StrictEqualUsingTSInternalIdenticalToOperator<DeepPickMatchingProps<Actual, Expected>, Expected>,
+        true
+      >
+    ): true
+  }
+
+  toExtend: {
+    <Expected extends Extends<Actual, Expected> extends true ? unknown : MismatchInfo<Actual, Expected>>(
+      ...MISMATCH: MismatchArgs<Extends<Actual, Expected>, true>
+    ): true
+
+    <Expected extends Extends<Actual, Expected> extends true ? unknown : MismatchInfo<Actual, Expected>>(
+      value: Expected & AValue,
+      ...MISMATCH: MismatchArgs<Extends<Actual, Expected>, true>
+    ): true
+  }
 
   toEqualTypeOf: {
     /**
@@ -357,30 +372,28 @@ export interface NegativeExpectTypeOf<Actual> extends BaseExpectTypeOf<Actual, {
    * @param MISMATCH - The mismatch arguments.
    * @returns `true`.
    */
-  toMatchObjectType: <Expected>(
-    ...MISMATCH: MismatchArgs<
-      StrictEqualUsingTSInternalIdenticalToOperator<Pick<Actual, keyof Actual & keyof Expected>, Expected>,
-      false
-    >
-  ) => true
+  toMatchObjectType: {
+    <Expected>(
+      ...MISMATCH: MismatchArgs<
+        StrictEqualUsingTSInternalIdenticalToOperator<Pick<Actual, keyof Actual & keyof Expected>, Expected>,
+        false
+      >
+    ): true
 
-  /**
-   * Check if your type extends the expected type
-   *
-   * A less strict version of {@linkcode PositiveExpectTypeOf.toEqualTypeOf | .toEqualTypeOf()} that allows for extra properties.
-   * This is roughly equivalent to an `extends` constraint in a function type argument.
-   *
-   * @example
-   * ```ts
-   * expectTypeOf({ a: 1, b: 1 }).toExtend<{ a: number }>()]
-   *
-   * expectTypeOf({ a: 1 }).not.toExtend<{ b: number }>()
-   * ```
-   *
-   * @param MISMATCH - The mismatch arguments.
-   * @returns `true`.
-   */
-  toExtend<Expected>(...MISMATCH: MismatchArgs<Extends<Actual, Expected>, false>): true
+    <Expected>(
+      value: Expected & AValue,
+      ...MISMATCH: MismatchArgs<
+        StrictEqualUsingTSInternalIdenticalToOperator<Pick<Actual, keyof Actual & keyof Expected>, Expected>,
+        false
+      >
+    ): true
+  }
+
+  toExtend: {
+    <Expected>(...MISMATCH: MismatchArgs<Extends<Actual, Expected>, false>): true
+
+    <Expected>(value: Expected & AValue, ...MISMATCH: MismatchArgs<Extends<Actual, Expected>, false>): true
+  }
 
   toEqualTypeOf: {
     /**

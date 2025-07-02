@@ -130,8 +130,7 @@ export type Extends<Left, Right> = IsNever<Left> extends true ? IsNever<Right> :
  */
 export type ExtendsExcludingAnyOrNever<Left, Right> = IsAny<Left> extends true ? IsAny<Right> : Extends<Left, Right>
 
-export type IsExactOptionalPropertyTypesEnabled =
-  MutuallyExtends<{a?: number}, {a?: number | undefined}> extends true ? false : true
+export type IsExactOptionalPropertyTypesEnabled = [(string | undefined)?] extends [string?] ? false : true
 // : MutuallyExtends<{ a?: number }, { a?: number | undefined }> extends true
 //   ? false
 //   : StrictEqualUsingTSInternalIdenticalToOperator<
@@ -258,7 +257,9 @@ export type IsUnion<T> = Not<Extends<UnionToTuple<T>['length'], 1>>
 export type DeepPickMatchingProps<Left, Right> =
   Left extends Record<string, unknown>
     ? Pick<
-        {[K in keyof Left]: K extends keyof Right ? DeepPickMatchingProps<Left[K], Right[K]> : never},
+        {
+          [K in keyof Left]: K extends keyof Right ? DeepPickMatchingProps<Left[K], Right[K]> : never
+        },
         Extract<keyof Left, keyof Right>
       >
     : Left

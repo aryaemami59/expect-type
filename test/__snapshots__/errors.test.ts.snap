@@ -89,16 +89,16 @@ test/usage-sabotaged-another-example-of-the-848b5c3a.ts:14:34 - error TS2344: Ty
 
 exports[`usage.test.ts > Another limitation: passing \`this\` references to \`expectTypeOf\` results in errors. 1`] = `
 "test/usage-sabotaged-another-limitation-passing-this-1bbc9c83.ts:7:40 - error TS2769: No overload matches this call.
-  Overload 1 of 2, '(value: ((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue, ...MISMATCH: MismatchArgs<...>): true', gave the following error.
-    Argument of type 'this' is not assignable to parameter of type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue'.
-      Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue'.
-        Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
-          Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
-            Type 'this' is not assignable to type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
-              Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
-                Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
-                  Type 'this' is not assignable to type '(IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
-                    Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? true : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
+  Overload 1 of 2, '(value: ((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue, ...MISMATCH: MismatchArgs<...>): true', gave the following error.
+    Argument of type 'this' is not assignable to parameter of type '((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue'.
+      Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & AValue'.
+        Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
+          Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
+            Type 'this' is not assignable to type '((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
+              Type 'B' is not assignable to type '((IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>) & { [avalue]?: undefined; }'.
+                Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
+                  Type 'this' is not assignable to type '(IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
+                    Type 'B' is not assignable to type '(IsNever<this> extends IsNever<this> ? And<[Extends<this, this>, Extends<this, this>]> : false) extends true ? unknown : MismatchInfo<this, this, DeepBrandOptionsDefaults>'.
   Argument of type '[this]' is not assignable to parameter of type 'MismatchArgs<StrictEqualUsingTSInternalIdenticalToOperator<this, StrictEqualUsingTSInternalIdenticalToOperator<this, unknown> extends true ? unknown : MismatchInfo<this, unknown, DeepBrandOptionsDefaults>>, true>'.
 
 7       expectTypeOf(this).toEqualTypeOf(this)

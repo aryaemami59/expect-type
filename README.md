@@ -551,6 +551,17 @@ function greet(this: {name: string}, message: string) {
 expectTypeOf(greet).thisParameter.toEqualTypeOf<{name: string}>()
 ```
 
+`thisParameter` supports overloads:
+
+```typescript
+type GreetOverloaded = {
+  (this: {name: string}, message: string): string
+  (this: {id: number}, message: string): string
+}
+
+expectTypeOf<GreetOverloaded>().thisParameter.toEqualTypeOf<{name: string} | {id: number}>()
+```
+
 Distinguish between functions with different `this` parameters:
 
 ```typescript

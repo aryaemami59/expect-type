@@ -993,7 +993,7 @@ const fn: any = () => true
 /**
  * Represents a function that allows asserting the expected type of a value.
  */
-export type _ExpectTypeOf = {
+export type ExpectTypeOfFunction = {
   /**
    * Asserts the expected type of a value.
    *
@@ -1034,7 +1034,7 @@ export type _ExpectTypeOf = {
  * @description
  * See the [full docs](https://npmjs.com/package/expect-type#documentation) for lots more examples.
  */
-export const expectTypeOf: _ExpectTypeOf = <Actual>(
+export const expectTypeOf: ExpectTypeOfFunction = <Actual>(
   _actual?: Actual,
 ): ExpectTypeOf<Actual, {positive: true; branded: false}> => {
   const nonFunctionProperties = [
